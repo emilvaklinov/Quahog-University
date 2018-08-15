@@ -17,7 +17,6 @@ public class Mentor {
 
     public Mentor(String name) {
         this.name = name;
-        this.student = student;
     }
 
     @Id

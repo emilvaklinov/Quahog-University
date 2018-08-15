@@ -14,15 +14,17 @@ public class Lesson {
     private String title;
     private int classroom_number;
     private List<Student>students;
+    private Course course;
 
 
     public Lesson() {
     }
 
-    public Lesson(String title, int classroom_number) {
+    public Lesson(String title, int classroom_number, Course course) {
         this.title = title;
         this.classroom_number = classroom_number;
         this.students = new ArrayList<Student>();
+        this.course = course;
     }
 
     @Id
@@ -69,4 +71,14 @@ public class Lesson {
 
     public void addStudent(Student student){
         this.students.add(student);}
+
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 }

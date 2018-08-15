@@ -15,17 +15,17 @@ public class DBLesson {
 
     public static List<Lesson> getStudent(Lesson lesson) {
         session = HibernateUtil.getSessionFactory().openSession();
-        List<Lesson> result = null;
+        List<Lesson> results = null;
         try {
             Criteria cr = session.createCriteria(Course.class);
             cr.createAlias("lessons", "lesson");
             cr.add(Restrictions.eq("lesson.id", lesson.getId()));
-            result = cr.list();
+            results = cr.list();
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
-        return result;
+        return results;
     }
 }

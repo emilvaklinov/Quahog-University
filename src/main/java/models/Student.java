@@ -17,17 +17,19 @@ public class Student {
     private int enrolment_number;
     private List<Lesson> lessons;
     private Mentor mentor;
+    private Course course;
 
 
     public Student() {
     }
 
-    public Student(String name, int age, int enrolment_number, Mentor mentor) {
+    public Student(String name, int age, int enrolment_number, Mentor mentor, Course course) {
         this.name = name;
         this.age = age;
         this.enrolment_number = enrolment_number;
         this.lessons = new ArrayList<Lesson>();
         this.mentor = mentor;
+        this.course = course;
     }
 
     @Id
@@ -91,6 +93,17 @@ public class Student {
         this.mentor = mentor;
     }
 
-    public void addLessons(Lesson lesson){
-        this.lessons.add(lesson);}
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public void addLessons(Lesson lesson) {
+        this.lessons.add(lesson);
+    }
 }

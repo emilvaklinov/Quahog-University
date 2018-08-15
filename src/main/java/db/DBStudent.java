@@ -53,5 +53,8 @@ public class DBStudent {
         }
         return results;
     }
-
+    public static List<Lesson> getAvailableLessonsFor(Student student) {
+        List<Lesson> results = DBCourse.getLessonsOf(student.getCourse());
+        return results;
+    }
 }
