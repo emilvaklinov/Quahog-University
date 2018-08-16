@@ -39,6 +39,10 @@ public class Runner {
 
 
         List<Lesson> availableLessonsStudent1 = DBStudent.getLesson(student1);
+        List<Lesson> availableLessonsStudent2 = DBStudent.getLesson(student2);
+        List<Lesson> availableLessonsStudent3 = DBStudent.getLesson(student3);
+
+
 
         DBStudent.addStudentToLesson(student1, lesson1);
         DBStudent.addStudentToLesson(student2, lesson1);
@@ -48,8 +52,8 @@ public class Runner {
         List<Lesson> course1Lessons = DBCourse.getLessonsOf(course1);
         List<Student> course1Students = DBCourse.getStudentsOf(course1);
 
-//        List<Student> lesson1Students  = DBLesson.getStudent(lesson1);
-//        List<Lesson> student1Lessons  = DBStudent.getLesson(student1);
+        List<Lesson> lesson1Students  = DBLesson.getStudent(lesson1);
+        List<Lesson> student1Lessons  = DBStudent.getLesson(student1);
     }
 
 }

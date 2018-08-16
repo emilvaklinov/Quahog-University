@@ -35,7 +35,7 @@ public class DBStudent {
     public static void addStudentToLesson(Student student, Lesson lesson) {
         student.addLessons(lesson);
         lesson.addStudent(student);
-        DBHelper.update(lesson); // REMEMBER THIS WILL CASCADE UPDATE TO PROJECT
+        DBHelper.update(lesson);
     }
 
     public static List<Lesson> getLesson(Student student) {
