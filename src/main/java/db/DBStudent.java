@@ -17,20 +17,6 @@ public class DBStudent {
     private static Session session;
     private static Transaction transaction;
 
-    public static List<Student> getLessons() {
-        session = HibernateUtil.getSessionFactory().openSession();
-        List<Student> students = null;
-        try {
-            Criteria cr = session.createCriteria(Course.class);
-            cr.addOrder(Order.desc("Lesson"));
-            students = cr.list();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-        return students;
-    }
 
     public static void addStudentToLesson(Student student, Lesson lesson) {
         student.addLessons(lesson);
